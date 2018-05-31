@@ -1,4 +1,4 @@
-package webapp;
+package com.in28minutes.jee;
 
 import java.io.IOException;
 
@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 
 		boolean isValidUser = service.validateUser(name, password);
 
-		if (isValidUser) {
+		if (isValidUser)  {
 			request.setAttribute("name", name);
 			request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(
 					request, response);
