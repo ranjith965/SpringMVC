@@ -1,12 +1,34 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<title>todos for ${name}</title>
+<title>Todos for ${name}</title>
 </head>
 <body>
-<H1>Hi ${name}</H1>
-<H1>Your todos</H1>
- ${todos}
- </br>
- <a href="/add-todo">Add Todo</a>
+	<H1>Your Todos</H1>
+	<div>
+		<table>
+			<caption>Your Todos are</caption>
+
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Date</th>
+					<th>Completed</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<c:forEach items="${todos}" var="todo">
+					<tr>
+						<td>${todo.desc}</td>
+						<td>${todo.targetDate}</td>
+						<td>${todo.done}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+	<a class="button" href="/add-todo">Add</a>
 </body>
 </html>
